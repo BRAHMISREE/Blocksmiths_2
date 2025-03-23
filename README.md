@@ -81,7 +81,7 @@ python segwit_transactions.py
 
 
 ## Report  
-Download the project report **[here](https://github.com/yourusername/bitcoin-transaction-simulator/blob/main/report.pdf)**.  
+Download the project report **[here](https://github.com/BRAHMISREE/The-Blocksmiths_2/blob/main/Project Report.pdf)**.  
 
 
 ## Dependencies
