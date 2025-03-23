@@ -1,7 +1,9 @@
 # Blocksmiths_2
-# Bitcoin Transaction Simulator
+# BitcoinScripting
 
 This project simulates Bitcoin transactions using both **Legacy** and **SegWit (Segregated Witness)** address formats. It demonstrates how to create, sign, and broadcast transactions between addresses, as well as how to validate scripts and handle **UTXOs (Unspent Transaction Outputs)**.
+
+## Team Name: TheBlocksmiths
 
 ##  Team Members:
 - **Gayathri Manaswini K** - Roll Number: **230001038**
