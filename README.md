@@ -35,23 +35,13 @@ pip install python-bitcoinrpc
 
 ### Clone the Repository:
 ```bash
-git clone https://github.com/yourusername/bitcoin-transaction-simulator.git
-cd bitcoin-transaction-simulator
+git clone https://github.com/BRAHMISREE/The-Blocksmiths_2.git
+cd The-Blocksmiths_2
 ```
 
 ### Configure Bitcoin Core:
-Ensure Bitcoin Core is running in **regtest** mode. Update the `bitcoin.conf` file with the following RPC credentials:
+Ensure Bitcoin Core is running in **regtest** mode. Update the `bitcoin.conf` file with the following RPC credentials used in the code.
 
-```ini
-rpcuser=Lucky
-rpcpassword=Lucky@786
-rpcport=18443
-```
-
-### Install Dependencies:
-```bash
-pip install -r requirements.txt
-```
 
 ## Running the Programs
 
