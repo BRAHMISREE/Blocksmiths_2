@@ -1,5 +1,5 @@
 import time
-from decimal import Decimal
+from decimal import Decimal 
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 
 rpc_user = "Lucky"
@@ -22,7 +22,7 @@ try:
     rpc_client.loadwallet(wallet_label)
     print(f"Wallet '{wallet_label}' loaded successfully.")
 except JSONRPCException as err:
-    if "-35" in str(err):
+    if "-35" in str(err):  
         print(f"Wallet '{wallet_label}' is already loaded. Continuing...")
     else:
         print(f"Error loading wallet: {err}")
@@ -70,6 +70,9 @@ unsigned_txn = rpc_client.createrawtransaction(input_txns, output_destinations)
 decoded_unsigned_txn = rpc_client.decoderawtransaction(unsigned_txn)
 print("Decoded Raw Transaction:", decoded_unsigned_txn)
 
+for vout in decoded_unsigned_txn["vout"]:
+    print(f"scriptPubKey: {vout['scriptPubKey']['hex']}")
+
 signed_txn = rpc_client.signrawtransactionwithwallet(unsigned_txn)
 if not signed_txn["complete"]:
     raise Exception("Transaction signing failed")
@@ -86,6 +89,10 @@ while True:
         print(f"Transaction from Recipient 1 to Recipient 2 is complete. (TXID: {broadcast_txn_id})")
         break
     time.sleep(2)
+
+decoded_signed_txn = rpc_client.decoderawtransaction(signed_txn["hex"])
+for vin in decoded_signed_txn["vin"]:
+    print(f"scriptSig: {vin['scriptSig']['hex']}")
 
 time.sleep(2)
 unspent_txns_2 = rpc_client.listunspent(1, 9999999, [recipient_2])
@@ -109,6 +116,9 @@ unsigned_txn_2 = rpc_client.createrawtransaction(input_txns_2, output_destinatio
 decoded_unsigned_txn_2 = rpc_client.decoderawtransaction(unsigned_txn_2)
 print("Decoded Raw Transaction (Recipient 2 -> Recipient 3):", decoded_unsigned_txn_2)
 
+for vout in decoded_unsigned_txn_2["vout"]:
+    print(f"scriptPubKey: {vout['scriptPubKey']['hex']}")
+
 signed_txn_2 = rpc_client.signrawtransactionwithwallet(unsigned_txn_2)
 if not signed_txn_2["complete"]:
     raise Exception("Transaction signing failed for Recipient 2 to Recipient 3.")
@@ -125,3 +135,7 @@ while True:
         print(f"Transaction from Recipient 2 to Recipient 3 is complete. (TXID: {broadcast_txn_id_2})")
         break
     time.sleep(2)
+
+decoded_signed_txn_2 = rpc_client.decoderawtransaction(signed_txn_2["hex"])
+for vin in decoded_signed_txn_2["vin"]:
+    print(f"scriptSig: {vin['scriptSig']['hex']}")
