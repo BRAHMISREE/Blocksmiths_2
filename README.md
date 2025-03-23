@@ -77,8 +77,10 @@ python segwit_transactions.py
 - Creates and broadcasts transactions between SegWit addresses.
 - Handles **UTXOs and transaction fees** dynamically.
 
-## Report
-Download the project report **[here](#)**.
+
+## Report  
+Download the project report **[here](https://github.com/yourusername/bitcoin-transaction-simulator/blob/main/report.pdf)**.  
+
 
 ## Dependencies
 
